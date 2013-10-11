@@ -2,22 +2,13 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    p "I DID IT!!!"
-    p "I DID IT!!!"
-
-    p params
-    p "!!!!!!!!!!!1"
-    email = params[:user][:email]
-
-    binding.pry
-    p Mail::Address.new(email).domain
-
-
-    p "I DID IT!!!"
-    p "I DID IT!!!"
-    p "I DID IT!!!"
-
     if resource.save
+      p "asdf"
+      email = params[:user][:email]
+      domain_name = Mail::Address.new(email).domain
+      domain = Domain.create(name: domain_name) unless domain = Domain.find_by_name(domain_name)
+	    resource.domain_id = domain.id  
+      binding.pry    
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
