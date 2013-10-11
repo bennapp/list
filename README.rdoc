@@ -1,5 +1,7 @@
 List
 
 Practice:
-Integrating devise two step confirmation into a more complicated User model.
-Working with Domains equivalent to craigslist cities, yet email domain specific eg. columbia.edu, yahoo.com
+Integrating devise two step confirmation into a more complicated User model and checking out their other authentication integrations.
+Working with Domains equivalent to craigslist cities, yet email domain specific eg. columbia.edu, yahoo.com. Users will be associated with thier specific domain, so ben2113@columbia.edu, in this example, will only see posts from other users with an '@columbia.edu' email domain.
+
+

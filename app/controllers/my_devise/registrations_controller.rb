@@ -3,7 +3,6 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
     if resource.save
-      p "asdf"
       email = params[:user][:email]
       domain_name = Mail::Address.new(email).domain
       domain = Domain.create(name: domain_name) unless domain = Domain.find_by_name(domain_name)
